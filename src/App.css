@@ -1,38 +1,64 @@
-.App {
-  text-align: center;
+/* Dark theme CSS */
+
+body {
+  background-color: #333; /* Dark background color for the entire page */
+  color: #fff; /* White text color for better readability on dark background */
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.search-container {
   display: flex;
-  flex-direction: column;
   align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  width: 80%;
+  max-width: 500px;
+  margin: auto;
+  margin-top: 50px;
+  margin-bottom: 50px;
 }
 
-.App-link {
-  color: #61dafb;
+.search-input {
+  flex: 1;
+  padding: 10px;
+  border: 2px solid #555; /* Darker border color for input */
+  border-radius: 15px;
+  outline: none;
+  font-size: 16px;
+  background-color: #444; /* Dark background color for input */
+  color: #fff; /* White text color for input */
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.search-icon {
+  padding: 10px;
+  background-color: #007bff; /* Change the color of the search icon */
+  color: #fff;
+  border: none;
+  border-radius: 0 15px 15px 0;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
 }
+
+.search-icon:hover {
+  background-color: #0056b3;
+}
+
+.search-icon i {
+  font-size: 16px;
+  margin-right: 5px;
+}
+
+.search-results {
+  margin-top: 20px; /* Add margin to separate search results from search box */
+}
+
+.search-result-item {
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 10px; /* Slightly rounded corners */
+  margin-bottom: 10px; /* Add margin between each search result item */
+  margin-left: 10px;
+  margin-right: 10px;
+  word-wrap: break-word; /* Allow text to wrap within the container */
+}
+
+
