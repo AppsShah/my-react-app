@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import ProductCard from './ProductCard';
 import './SearchPage.css';
-
+const apiUrl = process.env.REACT_APP_BACKENDURL;
 const SearchPage = () => {
   const { result } = useParams();
   const navigate = useNavigate();
@@ -22,7 +22,7 @@ const SearchPage = () => {
       return;
     }
     try {
-      const response = await fetch('http://192.168.29.11:4000/submit', {
+      const response = await fetch(`${apiUrl}/submit`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ accountNumber: result, cartItems })
@@ -52,7 +52,7 @@ const SearchPage = () => {
   const fetchProductList = async () => {
     setLoading(true);
     try {
-      const response = await fetch('http://192.168.29.11:4000/productlist');
+      const response = await fetch(`${apiUrl}/productlist`);
       const data = await response.json();
       setSearchResult(data);
       setOriginalData(data);
@@ -80,10 +80,10 @@ const SearchPage = () => {
 
   const handleAddProduct = async () => {
     try {
-      const updatedResponse = await fetch('http://192.168.29.11:4000/productlist');
+      const updatedResponse = await fetch(`${apiUrl}/productlist`);
       const products = await updatedResponse.json(); // Only read once
 
-      const response = await fetch('http://192.168.29.11:4000/addproduct', {
+      const response = await fetch(`${apiUrl}/addproduct`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({

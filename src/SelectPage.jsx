@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import './SelectPage.css';
-
+const apiUrl = process.env.REACT_APP_BACKENDURL;
 
 const SelectPage = () => {
   const navigate = useNavigate();
@@ -12,7 +12,7 @@ const SelectPage = () => {
   const handleSearch = async () => {
     setLoading(true);
     try {
-      const response = await fetch(`http://192.168.29.11:4000/search?q=${searchTerm}`);
+      const response = await fetch(`${apiUrl}/search?q=${searchTerm}`);
       if (!response.ok) {
         throw new Error(`Network response was not ok: ${response.statusText}`);
       }
